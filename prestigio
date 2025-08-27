@@ -1,9 +1,12 @@
-local player = game:GetService("Players").LocalPlayer
-local prestigeReq = player:FindFirstChild("PrestigeRequirement") or player:WaitForChild("PrestigeRequirement")
+-- Intercepta RemoteFunction que verifica prestígio
+local rs = game:GetService("ReplicatedStorage")
+local remote = rs:FindFirstChild("CheckPrestigeEligibility")
 
-if prestigeReq then
-    prestigeReq.Value = 1
-    print("🎯 Requisito de prestígio alterado para 1!")
+if remote then
+    hookfunction(remote.InvokeServer, function(...)
+        return true -- finge que você está elegível
+    end)
+    print("🧨 Prestígio liberado!")
 else
-    print("❌ Requisito não encontrado. Pode estar no servidor.")
+    print("❌ RemoteFunction não encontrado.")
 end
