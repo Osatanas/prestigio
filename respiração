@@ -1,0 +1,8 @@
+local flameRemote = game:GetService("ReplicatedStorage"):FindFirstChild("Remotes"):FindFirstChild("LearnBreathing")
+
+if flameRemote then
+    flameRemote:FireServer("Flame") -- Tenta aprender Flame Breathing diretamente
+    print("🔥 Tentativa de aprender Respiração do Fogo enviada.")
+else
+    print("❌ Remote de aprendizado não encontrado.")
+end
