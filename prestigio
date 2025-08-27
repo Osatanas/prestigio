@@ -1,0 +1,9 @@
+local player = game:GetService("Players").LocalPlayer
+local prestigeReq = player:FindFirstChild("PrestigeRequirement") or player:WaitForChild("PrestigeRequirement")
+
+if prestigeReq then
+    prestigeReq.Value = 1
+    print("🎯 Requisito de prestígio alterado para 1!")
+else
+    print("❌ Requisito não encontrado. Pode estar no servidor.")
+end
